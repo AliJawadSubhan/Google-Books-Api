@@ -10,9 +10,13 @@ class VolumneInfo {
     var volumeInfo = VolumneInfo();
     volumeInfo.title = json['title'];
     volumeInfo.authors = [];
-    for (var i in (json['authors'])) {
-      volumeInfo.authors?.add(i);
+
+    if (json['authors'] != null) {
+      for (var i in (json['authors'])) {
+        volumeInfo.authors?.add(i);
+      }
     }
+
     volumeInfo.images = ImageLinks.fromJson(json['images']);
 
     return volumeInfo;
